@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LLDetail"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.appgue.premierleagueapp.DetailActivity">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="#FFFFFF">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvTanggalPertandinganDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12/04/2018"
+        android:textColor="#500557"
+        android:gravity="center_vertical"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/tvVersusDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:text="VS"/>
+
+    <TextView
+        android:id="@+id/tvScoreHomeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/tvVersusDetail"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="0"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvScoreAwayDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/tvVersusDetail"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="0"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvScoreHomeDetail">
+
+    <TextView
+        android:id="@+id/tvTeamHomeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_horizontal"
+        android:text="Arsenal"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvFormationHomeDetail"
+        android:layout_below="@+id/tvTeamHomeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="4-3-2-1"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvTeamAwayDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Chelsea"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvFormationAwayDetail"
+        android:layout_below="@+id/tvTeamHomeDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="4-3-2-1"
+        android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
