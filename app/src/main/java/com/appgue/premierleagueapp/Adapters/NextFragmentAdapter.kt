@@ -34,7 +34,7 @@ class NextFragmentAdapter : RecyclerView.Adapter<NextFragmentAdapter.ViewHolder>
         holder.tvScoreAwayNext.text = nextData.intAwayScore.toString()
         holder.tvTeamHomeNext.text = nextData.strHomeTeam
         holder.tvTeamAwayNext.text = nextData.strAwayTeam
-        //set on click
+        //set on click dan kirim idEvent
         holder.LLNext.setOnClickListener({ v ->
             val intent = Intent(Context?.applicationContext, DetailActivity::class.java)
             intent.putExtra("idEvent", nextData.idEvent)
