@@ -6,6 +6,7 @@ import com.appgue.premierleagueapp.Utils.InitRetrofit
 import retrofit2.Call
 import retrofit2.Callback
 import com.appgue.premierleagueapp.R
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
 
 
@@ -19,6 +20,9 @@ class DetailActivity : AppCompatActivity() {
         val idEvent = intent.getStringExtra("idEvent").toInt()
 
         //mengambil intent
+        val idHomeTeam = intent.getStringExtra("idHomeTeam").toInt()
+        val idAwayTeam = intent.getStringExtra("idAwayTeam").toInt()
+
         tvIdEvent.text = intent.getStringExtra("idEvent")
         tvTanggalPertandinganDetail.text = intent.getStringExtra("strDate")
         tvTeamHomeDetail.text = intent.getStringExtra("strHomeTeam")
@@ -27,6 +31,8 @@ class DetailActivity : AppCompatActivity() {
         tvScoreAwayDetail.text = intent.getStringExtra("intAwayScore")
 
         loadDetail(idEvent)
+        loadLogoHome(idHomeTeam)
+        loadLogoAway(idAwayTeam)
     }
 
 
@@ -69,6 +75,53 @@ class DetailActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<EventDetails>?, t: Throwable?) {
+
+            }
+        })
+    }
+
+
+    private fun loadLogoHome(idHomeTeam: Int) {
+
+        var api = InitRetrofit().getInitInstance()
+        var call = api.request_team(idHomeTeam)
+
+        call.enqueue(object : Callback<Team> {
+            override fun onResponse(call: Call<Team>?, response: retrofit2.Response<Team>?) {
+                if (response != null) {
+                    val URIimgHome = response.body()?.teamresult?.get(0)?.strTeamBadge
+                    if (response.isSuccessful) {
+                        Picasso.with(this@DetailActivity)
+                                .load(URIimgHome)
+                                .into(imgHomeDetail)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<Team>?, t: Throwable?) {
+
+            }
+        })
+    }
+
+    private fun loadLogoAway(idAwayTeam: Int) {
+
+        var api = InitRetrofit().getInitInstance()
+        var call = api.request_team(idAwayTeam)
+
+        call.enqueue(object : Callback<Team> {
+            override fun onResponse(call: Call<Team>?, response: retrofit2.Response<Team>?) {
+                if (response != null) {
+                    val URIimgAway = response.body()?.teamresult?.get(0)?.strTeamBadge
+                    if (response.isSuccessful) {
+                        Picasso.with(this@DetailActivity)
+                                .load(URIimgAway)
+                                .into(imgAwayDetail)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<Team>?, t: Throwable?) {
 
             }
         })

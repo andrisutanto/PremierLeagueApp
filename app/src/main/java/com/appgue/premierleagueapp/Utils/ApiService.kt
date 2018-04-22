@@ -2,6 +2,7 @@ package com.appgue.premierleagueapp.Utils
 
 import com.appgue.premierleagueapp.Event
 import com.appgue.premierleagueapp.EventDetails
+import com.appgue.premierleagueapp.Team
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -22,5 +23,10 @@ interface ApiService {
     fun request_detail(
             @Query("id") idEvent: Int
     ): Call<EventDetails>
+
+    @GET("lookupteam.php?")
+    fun request_team(
+            @Query("id") idTeam: Int
+    ): Call<Team>
 
 }

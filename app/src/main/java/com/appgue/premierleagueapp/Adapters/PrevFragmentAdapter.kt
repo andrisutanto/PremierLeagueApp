@@ -37,6 +37,8 @@ class PrevFragmentAdapter : RecyclerView.Adapter<PrevFragmentAdapter.ViewHolder>
         holder.LLPrev.setOnClickListener({ v ->
             val intent = Intent(Context?.applicationContext, DetailActivity::class.java)
             intent.putExtra("idEvent", prevData.idEvent.toString())
+            intent.putExtra("idHomeTeam", prevData.idHomeTeam)
+            intent.putExtra("idAwayTeam", prevData.idAwayTeam)
             intent.putExtra("strDate", prevData.strDate)
             intent.putExtra("strHomeTeam", prevData.strHomeTeam)
             intent.putExtra("strAwayTeam", prevData.strAwayTeam)

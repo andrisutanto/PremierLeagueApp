@@ -37,6 +37,8 @@ class NextFragmentAdapter : RecyclerView.Adapter<NextFragmentAdapter.ViewHolder>
             val intent = Intent(Context?.applicationContext, DetailActivity::class.java)
             intent.putExtra("idEvent", nextData.idEvent.toString())
             intent.putExtra("strDate", nextData.strDate)
+            intent.putExtra("idHomeTeam", nextData.idHomeTeam)
+            intent.putExtra("idAwayTeam", nextData.idAwayTeam)
             intent.putExtra("strHomeTeam", nextData.strHomeTeam)
             intent.putExtra("strAwayTeam", nextData.strAwayTeam)
             Context!!.startActivity(intent)

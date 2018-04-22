@@ -26,6 +26,12 @@ class Event {
         @SerializedName("intAwayScore")
         var intAwayScore : Int = 0
 
+        @SerializedName("idHomeTeam")
+        var idHomeTeam : String? = null
+
+        @SerializedName("idAwayTeam")
+        var idAwayTeam : String? = null
+
         @SerializedName("strDate")
         var strDate : String? = null
     }
