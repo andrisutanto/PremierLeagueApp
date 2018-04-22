@@ -40,36 +40,36 @@
             android:paddingLeft="10dp"
             android:text="VS"/>
 
-        <TextView
-            android:id="@+id/tvScoreHomeNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/tvVersusNext"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="0"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        <!--<TextView-->
+            <!--android:id="@+id/tvScoreHomeNext"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_toLeftOf="@+id/tvVersusNext"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:text="0"-->
+            <!--android:textSize="18sp"-->
+            <!--android:textStyle="bold" />-->
 
-        <TextView
-            android:id="@+id/tvScoreAwayNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/tvVersusNext"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="0"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        <!--<TextView-->
+            <!--android:id="@+id/tvScoreAwayNext"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_toRightOf="@+id/tvVersusNext"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:text="0"-->
+            <!--android:textSize="18sp"-->
+            <!--android:textStyle="bold" />-->
 
         <TextView
             android:id="@+id/tvTeamHomeNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/tvScoreHomeNext"
+            android:layout_toLeftOf="@+id/tvVersusNext"
             android:text="Arsenal"
             android:textSize="18sp" />
 
@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/tvScoreAwayNext"
+            android:layout_toRightOf="@+id/tvVersusNext"
             android:text="Chelsea"
             android:textSize="18sp" />
     </RelativeLayout>

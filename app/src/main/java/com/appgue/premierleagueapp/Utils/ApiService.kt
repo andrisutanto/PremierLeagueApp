@@ -18,9 +18,9 @@ interface ApiService {
     @GET("eventsnextleague.php?id=4328")
     fun request_nextMatch(): Call<Event>
 
-    @GET("lookupevent.php?id=526848")
-    fun request_detail(): Call<EventDetails>
-            //@Query("id") idEvent: Int
-
+    @GET("lookupevent.php?")
+    fun request_detail(
+            @Query("id") idEvent: Int
+    ): Call<EventDetails>
 
 }

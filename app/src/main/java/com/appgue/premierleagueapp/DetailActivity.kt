@@ -26,21 +26,44 @@ class DetailActivity : AppCompatActivity() {
         tvScoreHomeDetail.text = intent.getStringExtra("intHomeScore")
         tvScoreAwayDetail.text = intent.getStringExtra("intAwayScore")
 
-        loadDetail()
+        loadDetail(idEvent)
     }
 
 
-    private fun loadDetail() {
+    private fun loadDetail(idEvent: Int) {
 
         var api = InitRetrofit().getInitInstance()
-        var call = api.request_detail()
+        var call = api.request_detail(idEvent)
 
         call.enqueue(object : Callback<EventDetails> {
             override fun onResponse(call: Call<EventDetails>?, response: retrofit2.Response<EventDetails>?) {
                 if (response != null) {
                     if (response.isSuccessful) {
+                        tvHomeGoalDetails.setText(response.body()?.result?.get(0)?.strHomeGoalDetails)
                         tvAwayGoalDetails.setText(response.body()?.result?.get(0)?.strAwayGoalDetails)
 
+                        if(response.body()?.result?.get(0)?.strHomeFormation != "" || response.body()?.result?.get(0)?.strHomeFormation != null)
+                            tvFormationHomeDetail.setText(response.body()?.result?.get(0)?.strHomeFormation)
+                        else tvFormationHomeDetail.setText("no formation")
+
+                        if(response.body()?.result?.get(0)?.strAwayFormation != "" || response.body()?.result?.get(0)?.strAwayFormation != null)
+                            tvFormationAwayDetail.setText(response.body()?.result?.get(0)?.strAwayFormation)
+                        else tvFormationAwayDetail.setText("no formation")
+
+                        tvHomeShots.setText(response.body()?.result?.get(0)?.intHomeShots.toString())
+                        tvAwayShots.setText(response.body()?.result?.get(0)?.intAwayShots.toString())
+
+                        tvHomeGoalkeeper.setText(response.body()?.result?.get(0)?.strHomeLineupGoalkeeper)
+                        tvAwayGoalkeeper.setText(response.body()?.result?.get(0)?.strAwayLineupGoalkeeper)
+
+                        tvHomeDefense.setText(response.body()?.result?.get(0)?.strHomeLineupDefense)
+                        tvAwayDefense.setText(response.body()?.result?.get(0)?.strAwayLineupDefense)
+
+                        tvHomeMidfield.setText(response.body()?.result?.get(0)?.strHomeLineupMidfield)
+                        tvAwayMidfield.setText(response.body()?.result?.get(0)?.strAwayLineupMidfield)
+
+                        tvHomeForward.setText(response.body()?.result?.get(0)?.strHomeLineupForward)
+                        tvAwayForward.setText(response.body()?.result?.get(0)?.strAwayLineupForward)
                     }
                 }
             }

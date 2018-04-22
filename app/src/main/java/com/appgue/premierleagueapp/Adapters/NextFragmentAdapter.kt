@@ -30,14 +30,15 @@ class NextFragmentAdapter : RecyclerView.Adapter<NextFragmentAdapter.ViewHolder>
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val nextData: Event.EventsData = nextEvent!!.get(position)
         holder.tvTanggalPertandinganNext.text = nextData.strDate
-        holder.tvScoreHomeNext.text = nextData.intHomeScore.toString()
-        holder.tvScoreAwayNext.text = nextData.intAwayScore.toString()
         holder.tvTeamHomeNext.text = nextData.strHomeTeam
         holder.tvTeamAwayNext.text = nextData.strAwayTeam
         //set on click dan kirim idEvent
         holder.LLNext.setOnClickListener({ v ->
             val intent = Intent(Context?.applicationContext, DetailActivity::class.java)
-            intent.putExtra("idEvent", nextData.idEvent)
+            intent.putExtra("idEvent", nextData.idEvent.toString())
+            intent.putExtra("strDate", nextData.strDate)
+            intent.putExtra("strHomeTeam", nextData.strHomeTeam)
+            intent.putExtra("strAwayTeam", nextData.strAwayTeam)
             Context!!.startActivity(intent)
         })
     }
@@ -54,8 +55,6 @@ class NextFragmentAdapter : RecyclerView.Adapter<NextFragmentAdapter.ViewHolder>
     // inner class VewHolder berfungsi untuk menangkap dan menginisialisasi semua widget yang diinflate dari method onCreateViewHolder
     class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         var tvTanggalPertandinganNext = itemView?.findViewById<View>(R.id.tvTanggalPertandinganNext) as TextView
-        var tvScoreHomeNext = itemView?.findViewById<View>(R.id.tvScoreHomeNext) as TextView
-        var tvScoreAwayNext = itemView?.findViewById<View>(R.id.tvScoreAwayNext) as TextView
         var tvTeamHomeNext = itemView?.findViewById<View>(R.id.tvTeamHomeNext) as TextView
         var tvTeamAwayNext = itemView?.findViewById<View>(R.id.tvTeamAwayNext) as TextView
         var LLNext = itemView?.findViewById<View>(R.id.LLNext) as LinearLayout
