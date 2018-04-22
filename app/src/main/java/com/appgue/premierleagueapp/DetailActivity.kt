@@ -1,5 +1,6 @@
 package com.appgue.premierleagueapp
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.appgue.premierleagueapp.Utils.InitRetrofit
@@ -48,11 +49,11 @@ class DetailActivity : AppCompatActivity() {
                         tvHomeGoalDetails.setText(response.body()?.result?.get(0)?.strHomeGoalDetails)
                         tvAwayGoalDetails.setText(response.body()?.result?.get(0)?.strAwayGoalDetails)
 
-                        if(response.body()?.result?.get(0)?.strHomeFormation != "" || response.body()?.result?.get(0)?.strHomeFormation != null)
+                        if(response.body()?.result?.get(0)?.strHomeFormation != "")
                             tvFormationHomeDetail.setText(response.body()?.result?.get(0)?.strHomeFormation)
                         else tvFormationHomeDetail.setText("no formation")
 
-                        if(response.body()?.result?.get(0)?.strAwayFormation != "" || response.body()?.result?.get(0)?.strAwayFormation != null)
+                        if(response.body()?.result?.get(0)?.strAwayFormation != "")
                             tvFormationAwayDetail.setText(response.body()?.result?.get(0)?.strAwayFormation)
                         else tvFormationAwayDetail.setText("no formation")
 
@@ -70,6 +71,7 @@ class DetailActivity : AppCompatActivity() {
 
                         tvHomeForward.setText(response.body()?.result?.get(0)?.strHomeLineupForward)
                         tvAwayForward.setText(response.body()?.result?.get(0)?.strAwayLineupForward)
+
                     }
                 }
             }
@@ -93,6 +95,7 @@ class DetailActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         Picasso.with(this@DetailActivity)
                                 .load(URIimgHome)
+                                .placeholder(R.drawable.placeholder)
                                 .into(imgHomeDetail)
                     }
                 }
@@ -116,6 +119,7 @@ class DetailActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         Picasso.with(this@DetailActivity)
                                 .load(URIimgAway)
+                                .placeholder(R.drawable.placeholder)
                                 .into(imgAwayDetail)
                     }
                 }
