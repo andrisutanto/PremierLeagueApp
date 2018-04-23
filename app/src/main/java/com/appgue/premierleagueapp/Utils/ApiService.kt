@@ -14,18 +14,18 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("eventspastleague.php?id=4328")
-    fun request_prevMatch(): Call<Event>
+    fun requestPrevMatch(): Call<Event>
 
     @GET("eventsnextleague.php?id=4328")
-    fun request_nextMatch(): Call<Event>
+    fun requestNextMatch(): Call<Event>
 
     @GET("lookupevent.php?")
-    fun request_detail(
+    fun requestDetail(
             @Query("id") idEvent: Int
     ): Call<EventDetails>
 
     @GET("lookupteam.php?")
-    fun request_team(
+    fun requestTeam(
             @Query("id") idTeam: Int
     ): Call<Team>
 

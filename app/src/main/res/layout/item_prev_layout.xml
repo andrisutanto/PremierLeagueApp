@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="3dp"
-        android:text="12/04/2018"
+        android:text="@string/tanggal"
         android:textColor="#500557"
         android:gravity="center_vertical"/>
 
@@ -38,7 +38,7 @@
             android:layout_centerVertical="true"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
-            android:text="VS"/>
+            android:text="@string/vs"/>
 
         <TextView
             android:id="@+id/tvScoreHomePrev"
@@ -48,7 +48,7 @@
             android:layout_toLeftOf="@+id/tvVersusPrev"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="0"
+            android:text="@string/score"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -60,7 +60,7 @@
             android:layout_toRightOf="@+id/tvVersusPrev"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="0"
+            android:text="@string/score"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/tvScoreHomePrev"
-            android:text="Arsenal"
+            android:text="@string/teamhome"
             android:textSize="18sp" />
 
         <TextView
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/tvScoreAwayPrev"
-            android:text="Chelsea"
+            android:text="@string/teamaway"
             android:textSize="18sp" />
     </RelativeLayout>
 </LinearLayout>

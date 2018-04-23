@@ -12,10 +12,10 @@ import com.appgue.premierleagueapp.Fragments.PrevFragment
 class TabAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm) {
     // mengatur letak tabLayout sesuai posisi dan fragment yang akan ditampilkan
     override fun getItem(position: Int): Fragment {
-        if (position == 0) {
-            return PrevFragment()
+        return if (position == 0) {
+            PrevFragment()
         } else {
-            return NextFragment()
+            NextFragment()
         }
     }
     // mengambil total dari fragment atau tampilan

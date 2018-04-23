@@ -16,15 +16,10 @@ import com.appgue.premierleagueapp.R
 /**
  * Created by Andri on 4/21/2018.
  */
-class PrevFragmentAdapter : RecyclerView.Adapter<PrevFragmentAdapter.ViewHolder> {
+class PrevFragmentAdapter (c: FragmentActivity?, data: List<Event.EventsData>?) : RecyclerView.Adapter<PrevFragmentAdapter.ViewHolder>() {
     //init data untuk recyclerview
-    var prevEvent: List<Event.EventsData>? = null
-    var Context: Context? =null
-    //cons utk menangkap dan mencocokan data dari data yang diambil
-    constructor(c: FragmentActivity?, data: List<Event.EventsData>?) {
-        this.Context = c
-        this.prevEvent = data
-    }
+    private var prevEvent: List<Event.EventsData>? = data
+    private var Context: Context? = c
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val prevData: Event.EventsData = prevEvent!!.get(position)
@@ -39,12 +34,7 @@ class PrevFragmentAdapter : RecyclerView.Adapter<PrevFragmentAdapter.ViewHolder>
             intent.putExtra("idEvent", prevData.idEvent.toString())
             intent.putExtra("idHomeTeam", prevData.idHomeTeam)
             intent.putExtra("idAwayTeam", prevData.idAwayTeam)
-            intent.putExtra("strDate", prevData.strDate)
-            intent.putExtra("strHomeTeam", prevData.strHomeTeam)
-            intent.putExtra("strAwayTeam", prevData.strAwayTeam)
-            intent.putExtra("intHomeScore", prevData.intHomeScore.toString())
-            intent.putExtra("intAwayScore", prevData.intAwayScore.toString())
-            Context!!.startActivity(intent)
+            Context?.startActivity(intent)
         })
     }
 

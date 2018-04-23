@@ -26,9 +26,9 @@ class NextFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        var view = inflater.inflate(R.layout.fragment_next, container, false)
+        val view = inflater.inflate(R.layout.fragment_next, container, false)
 
-        var swipe = view.findViewById<View>(R.id.refresh_next) as SwipeRefreshLayout
+        val swipe = view.findViewById<View>(R.id.refresh_next) as SwipeRefreshLayout
         swipe.setOnRefreshListener {
             swipe.isRefreshing = false
             getNext()
@@ -39,8 +39,8 @@ class NextFragment : Fragment() {
     }
 
     private fun getNext() {
-        var api = InitRetrofit().getInitInstance()
-        var call = api.request_nextMatch()
+        val api = InitRetrofit().getInitInstance()
+        val call = api.requestNextMatch()
         call.enqueue(object : Callback<Event> {
 
             override fun onFailure(call: Call<Event>?, t: Throwable?) {
@@ -50,7 +50,7 @@ class NextFragment : Fragment() {
             override fun onResponse(call: Call<Event>?, response: retrofit2.Response<Event>?) {
                 if (response != null) {
                     if (response.isSuccessful) {
-                        var data = response.body()?.data
+                        val data = response.body()?.data
                         val adapter = NextFragmentAdapter(activity, data)
                         recycler_next.adapter = adapter
                         recycler_next.layoutManager = GridLayoutManager(activity,1)

@@ -23,13 +23,7 @@ class DetailActivity : AppCompatActivity() {
         //mengambil intent
         val idHomeTeam = intent.getStringExtra("idHomeTeam").toInt()
         val idAwayTeam = intent.getStringExtra("idAwayTeam").toInt()
-
         tvIdEvent.text = intent.getStringExtra("idEvent")
-        tvTanggalPertandinganDetail.text = intent.getStringExtra("strDate")
-        tvTeamHomeDetail.text = intent.getStringExtra("strHomeTeam")
-        tvTeamAwayDetail.text = intent.getStringExtra("strAwayTeam")
-        tvScoreHomeDetail.text = intent.getStringExtra("intHomeScore")
-        tvScoreAwayDetail.text = intent.getStringExtra("intAwayScore")
 
         loadDetail(idEvent)
         loadLogoHome(idHomeTeam)
@@ -39,8 +33,8 @@ class DetailActivity : AppCompatActivity() {
 
     private fun loadDetail(idEvent: Int) {
 
-        var api = InitRetrofit().getInitInstance()
-        var call = api.request_detail(idEvent)
+        val api = InitRetrofit().getInitInstance()
+        val call = api.requestDetail(idEvent)
 
         call.enqueue(object : Callback<EventDetails> {
             override fun onResponse(call: Call<EventDetails>?, response: retrofit2.Response<EventDetails>?) {
@@ -72,6 +66,11 @@ class DetailActivity : AppCompatActivity() {
                         tvHomeForward.setText(response.body()?.result?.get(0)?.strHomeLineupForward)
                         tvAwayForward.setText(response.body()?.result?.get(0)?.strAwayLineupForward)
 
+                        tvTanggalPertandinganDetail.setText(response.body()?.result?.get(0)?.strDate)
+                        tvTeamHomeDetail.setText(response.body()?.result?.get(0)?.strHomeTeam)
+                        tvTeamAwayDetail.setText(response.body()?.result?.get(0)?.strAwayTeam)
+                        tvScoreHomeDetail.setText(response.body()?.result?.get(0)?.intHomeScore.toString())
+                        tvScoreAwayDetail.setText(response.body()?.result?.get(0)?.intAwayScore.toString())
                     }
                 }
             }
@@ -85,8 +84,8 @@ class DetailActivity : AppCompatActivity() {
 
     private fun loadLogoHome(idHomeTeam: Int) {
 
-        var api = InitRetrofit().getInitInstance()
-        var call = api.request_team(idHomeTeam)
+        val api = InitRetrofit().getInitInstance()
+        val call = api.requestTeam(idHomeTeam)
 
         call.enqueue(object : Callback<Team> {
             override fun onResponse(call: Call<Team>?, response: retrofit2.Response<Team>?) {
@@ -109,8 +108,8 @@ class DetailActivity : AppCompatActivity() {
 
     private fun loadLogoAway(idAwayTeam: Int) {
 
-        var api = InitRetrofit().getInitInstance()
-        var call = api.request_team(idAwayTeam)
+        val api = InitRetrofit().getInitInstance()
+        val call = api.requestTeam(idAwayTeam)
 
         call.enqueue(object : Callback<Team> {
             override fun onResponse(call: Call<Team>?, response: retrofit2.Response<Team>?) {

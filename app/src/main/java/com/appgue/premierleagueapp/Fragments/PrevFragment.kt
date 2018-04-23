@@ -25,9 +25,9 @@ class PrevFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        var view = inflater.inflate(R.layout.fragment_prev, container, false)
+        val view = inflater.inflate(R.layout.fragment_prev, container, false)
 
-        var swipe = view.findViewById<View>(R.id.refresh_prev) as SwipeRefreshLayout
+        val swipe = view.findViewById<View>(R.id.refresh_prev) as SwipeRefreshLayout
         swipe.setOnRefreshListener {
             swipe.isRefreshing = false
             getPrev()
@@ -38,8 +38,8 @@ class PrevFragment : Fragment() {
     }
 
     private fun getPrev() {
-        var api = InitRetrofit().getInitInstance()
-        var call = api.request_prevMatch()
+        val api = InitRetrofit().getInitInstance()
+        val call = api.requestPrevMatch()
         call.enqueue(object : Callback<Event> {
 
             override fun onFailure(call: Call<Event>?, t: Throwable) {
@@ -49,8 +49,8 @@ class PrevFragment : Fragment() {
             override fun onResponse(call: Call<Event>?, response: retrofit2.Response<Event>?) {
                 if (response != null) {
                     if (response.isSuccessful) {
-                        var data = response.body()?.data
-                        var adapter = PrevFragmentAdapter(activity, data)
+                        val data = response.body()?.data
+                        val adapter = PrevFragmentAdapter(activity, data)
                         recycler_prev.adapter = adapter
                         recycler_prev.layoutManager = GridLayoutManager(activity,1)
                     }

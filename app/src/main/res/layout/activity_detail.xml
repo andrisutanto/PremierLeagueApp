@@ -27,7 +27,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="12/04/2018"
         android:textColor="#500557"/>
 
     <RelativeLayout
@@ -43,7 +42,7 @@
         android:layout_centerVertical="true"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
-        android:text="VS"/>
+        android:text="@string/vs"/>
 
     <TextView
         android:id="@+id/tvScoreHomeDetail"
@@ -53,7 +52,6 @@
         android:layout_toLeftOf="@+id/tvVersusDetail"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="0"
         android:textSize="32sp"
         android:textStyle="bold" />
 
@@ -72,7 +70,6 @@
         android:layout_toRightOf="@+id/tvVersusDetail"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="0"
         android:textSize="32sp"
         android:textStyle="bold" />
 
@@ -159,7 +156,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Goals"
+            android:text="@string/goals"
             android:textColor="#500557"/>
 
         <TextView
@@ -194,7 +191,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Shots"
+            android:text="@string/shots"
             android:textColor="#500557"/>
 
         <TextView
@@ -219,7 +216,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Lineups"/>
+        android:text="@string/lineups"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -239,7 +236,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Goalkeeper"
+            android:text="@string/goalkeeper"
             android:textColor="#500557"/>
 
         <TextView
@@ -271,7 +268,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Defense"
+            android:text="@string/defense"
             android:textColor="#500557"/>
 
         <TextView
@@ -303,7 +300,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Midfield"
+            android:text="@string/midfield"
             android:textColor="#500557"/>
 
         <TextView
@@ -335,7 +332,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Forward"
+            android:text="@string/forward"
             android:textColor="#500557"/>
 
         <TextView

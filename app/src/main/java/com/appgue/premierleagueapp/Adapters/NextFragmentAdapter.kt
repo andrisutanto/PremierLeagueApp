@@ -16,16 +16,10 @@ import com.appgue.premierleagueapp.R
 /**
  * Created by Andri on 4/21/2018.
  */
-class NextFragmentAdapter : RecyclerView.Adapter<NextFragmentAdapter.ViewHolder>{
+class NextFragmentAdapter (c: FragmentActivity?, data: List<Event.EventsData>?) : RecyclerView.Adapter<NextFragmentAdapter.ViewHolder>() {
     //init data untuk recyclerview
-    var nextEvent: List<Event.EventsData>? = null
-    var Context: Context? = null
-
-    //cons utk menangkap dan mencocokan data dari data yang diambil
-    constructor(c: FragmentActivity?, data: List<Event.EventsData>?) {
-        this.Context = c
-        this.nextEvent = data
-    }
+    private var nextEvent: List<Event.EventsData>? = data
+    private var Context: Context? = c
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val nextData: Event.EventsData = nextEvent!!.get(position)
@@ -36,12 +30,9 @@ class NextFragmentAdapter : RecyclerView.Adapter<NextFragmentAdapter.ViewHolder>
         holder.LLNext.setOnClickListener({ v ->
             val intent = Intent(Context?.applicationContext, DetailActivity::class.java)
             intent.putExtra("idEvent", nextData.idEvent.toString())
-            intent.putExtra("strDate", nextData.strDate)
             intent.putExtra("idHomeTeam", nextData.idHomeTeam)
             intent.putExtra("idAwayTeam", nextData.idAwayTeam)
-            intent.putExtra("strHomeTeam", nextData.strHomeTeam)
-            intent.putExtra("strAwayTeam", nextData.strAwayTeam)
-            Context!!.startActivity(intent)
+            Context?.startActivity(intent)
         })
     }
 

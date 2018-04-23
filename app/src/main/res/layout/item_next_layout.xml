@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="3dp"
-        android:text="12/04/2018"
+        android:text="@string/tanggal"
         android:textColor="#500557"
         android:gravity="center_vertical"/>
 
@@ -38,31 +38,7 @@
             android:layout_centerVertical="true"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
-            android:text="VS"/>
-
-        <!--<TextView-->
-            <!--android:id="@+id/tvScoreHomeNext"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_toLeftOf="@+id/tvVersusNext"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:paddingRight="10dp"-->
-            <!--android:text="0"-->
-            <!--android:textSize="18sp"-->
-            <!--android:textStyle="bold" />-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/tvScoreAwayNext"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_toRightOf="@+id/tvVersusNext"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:paddingRight="10dp"-->
-            <!--android:text="0"-->
-            <!--android:textSize="18sp"-->
-            <!--android:textStyle="bold" />-->
+            android:text="@string/vs"/>
 
         <TextView
             android:id="@+id/tvTeamHomeNext"
@@ -70,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/tvVersusNext"
-            android:text="Arsenal"
+            android:text="@string/teamhome"
             android:textSize="18sp" />
 
         <TextView
@@ -79,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/tvVersusNext"
-            android:text="Chelsea"
+            android:text="@string/teamaway"
             android:textSize="18sp" />
     </RelativeLayout>
 </LinearLayout>

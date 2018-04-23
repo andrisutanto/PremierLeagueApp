@@ -53,5 +53,20 @@ class EventDetails {
 
             @SerializedName("strAwayLineupForward")
             var strAwayLineupForward : String? = null
+
+            @SerializedName("strDate")
+            var strDate : String? = null
+
+            @SerializedName("strHomeTeam")
+            var strHomeTeam : String? = null
+
+            @SerializedName("strAwayTeam")
+            var strAwayTeam : String? = null
+
+            @SerializedName("intHomeScore")
+            var intHomeScore : Int = 0
+
+            @SerializedName("intAwayScore")
+            var intAwayScore : Int = 0
         }
 }
