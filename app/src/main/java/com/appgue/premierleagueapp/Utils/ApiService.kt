@@ -1,11 +1,10 @@
 package com.appgue.premierleagueapp.Utils
 
-import com.appgue.premierleagueapp.Event
-import com.appgue.premierleagueapp.EventDetails
-import com.appgue.premierleagueapp.Team
+import com.appgue.premierleagueapp.Model.Event
+import com.appgue.premierleagueapp.Model.EventDetails
+import com.appgue.premierleagueapp.Model.Team
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**

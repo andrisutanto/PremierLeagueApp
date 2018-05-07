@@ -1,6 +1,5 @@
-package com.appgue.premierleagueapp
+package com.appgue.premierleagueapp.Model
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -9,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 class EventDetails {
 
         @SerializedName("events")
-        var result: List<EventDetails.data>? = null
+        var result: List<data>? = null
 
         class data{
             @SerializedName("strHomeFormation")

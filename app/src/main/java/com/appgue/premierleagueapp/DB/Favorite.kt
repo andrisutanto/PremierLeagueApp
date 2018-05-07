@@ -1,0 +1,7 @@
+package com.appgue.premierleagueapp.DB
+
+/**
+ * Created by Andri on 4/29/2018.
+ */
+
+data class Favorite(val id: Long, val name: String)

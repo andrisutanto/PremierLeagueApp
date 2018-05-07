@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 //      untuk memberi title pada masing2 tabLayout
         tabHome.addTab(tabHome.newTab().setText("Prev"))
         tabHome.addTab(tabHome.newTab().setText("Next"))
+        tabHome.addTab(tabHome.newTab().setText("Favorite"))
 //      menginisialisasi adapter
         var adapter = TabAdapter(supportFragmentManager)
         viewPagerTabs.adapter = adapter

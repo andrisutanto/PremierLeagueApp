@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.appgue.premierleagueapp.DetailActivity
-import com.appgue.premierleagueapp.Event
+import com.appgue.premierleagueapp.Model.Event
 import com.appgue.premierleagueapp.R
 
 /**

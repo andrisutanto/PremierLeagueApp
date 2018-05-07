@@ -1,14 +1,25 @@
 package com.appgue.premierleagueapp
 
-import android.content.Context
+import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
+import android.support.design.widget.Snackbar
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import com.appgue.premierleagueapp.DB.database
+//import com.appgue.premierleagueapp.DB.Favorite
+//import com.appgue.premierleagueapp.DB.database
+import com.appgue.premierleagueapp.Model.EventDetails
+import com.appgue.premierleagueapp.Model.Team
 import com.appgue.premierleagueapp.Utils.InitRetrofit
 import retrofit2.Call
 import retrofit2.Callback
-import com.appgue.premierleagueapp.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
+import org.jetbrains.anko.db.delete
+import org.jetbrains.anko.db.insert
 
 
 class DetailActivity : AppCompatActivity() {
@@ -16,6 +27,11 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+
+        //on click listener button favorite
+        btnFavorite.setOnClickListener{
+            addToFavorite()
+        }
 
         //ambil id event utk lookup event
         val idEvent = intent.getStringExtra("idEvent").toInt()
@@ -129,4 +145,26 @@ class DetailActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun addToFavorite(){
+        try {
+            database.use {
+                insert("favorite",
+                        "id" to "123456",
+                        "name" to "Arsenal")
+
+                insert("favorite",
+                        "id" to "123455",
+                        "name" to "Chelsea")
+
+                insert("favorite",
+                        "id" to "123454",
+                        "name" to "Manchester United")
+            }
+            Toast.makeText(this, "Added to favorite", Toast.LENGTH_SHORT).show()
+        } catch (e: SQLiteConstraintException){
+            Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }

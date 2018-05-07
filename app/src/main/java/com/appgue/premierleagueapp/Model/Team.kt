@@ -1,4 +1,4 @@
-package com.appgue.premierleagueapp
+package com.appgue.premierleagueapp.Model
 
 import com.google.gson.annotations.SerializedName
 
@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 
 class Team {
     @SerializedName("teams")
-    var teamresult: List<Team.data>? = null
+    var teamresult: List<data>? = null
 
     class data{
         @SerializedName("strTeamBadge")

@@ -1,4 +1,4 @@
-package com.appgue.premierleagueapp
+package com.appgue.premierleagueapp.Model
 
 import com.google.gson.annotations.SerializedName
 

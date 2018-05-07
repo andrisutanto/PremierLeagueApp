@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.appgue.premierleagueapp.Adapters.PrevFragmentAdapter
-import com.appgue.premierleagueapp.Event
+import com.appgue.premierleagueapp.Model.Event
 
 import com.appgue.premierleagueapp.R
 import com.appgue.premierleagueapp.Utils.InitRetrofit
