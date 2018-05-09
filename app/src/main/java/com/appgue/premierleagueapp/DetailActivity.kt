@@ -155,7 +155,7 @@ class DetailActivity : AppCompatActivity() {
 
                 insert("favorite",
                         "id" to "123455",
-                        "name" to "Chelsea")
+                        "name" to "Cgghelsea")
 
                 insert("favorite",
                         "id" to "123454",
