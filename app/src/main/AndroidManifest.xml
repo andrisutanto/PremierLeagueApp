@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name=".DetailActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".DetailFavActivity"></activity>
     </application>
 
 </manifest>

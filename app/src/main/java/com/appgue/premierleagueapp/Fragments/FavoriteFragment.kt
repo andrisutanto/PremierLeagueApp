@@ -44,7 +44,7 @@ class FavoriteFragment : Fragment() {
 
         favorite = dataSource.getFavorite()
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
-        recyclerView.adapter = DBAdapter(favorite)
+        recyclerView.adapter = DBAdapter(activity, favorite)
 
 
         //
@@ -56,7 +56,7 @@ class FavoriteFragment : Fragment() {
 
             favorite = dataSource.getFavorite()
             recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
-            recyclerView.adapter = DBAdapter(favorite)
+            recyclerView.adapter = DBAdapter(activity, favorite)
         }
 
         return view
