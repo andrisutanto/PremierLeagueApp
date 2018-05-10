@@ -31,7 +31,9 @@ class DBAdapter (val favorite: List<Favorite>) : RecyclerView.Adapter<DBAdapter.
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItems(favorite: Favorite) {
-            itemView.nombre.text = favorite.name
+            itemView.tvTeamHomeFavorit.text = favorite.teamHome
+            itemView.tvTeamAwayFavorit.text = favorite.teamAway
+            itemView.tvTanggalPertandinganFavorit.text = favorite.id.toString()
         }
     }
 }

@@ -4,6 +4,7 @@ package com.appgue.premierleagueapp.Fragments
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -41,7 +42,7 @@ class FavoriteFragment : Fragment() {
         dataSource = DataSource(requireContext())
         createData()
 
-        favorite = dataSource.getPersonas()
+        favorite = dataSource.getFavorite()
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
         recyclerView.adapter = DBAdapter(favorite)
 
@@ -52,12 +53,18 @@ class FavoriteFragment : Fragment() {
         swipe.setOnRefreshListener {
             swipe.isRefreshing = false
             createData()
+
+            favorite = dataSource.getFavorite()
+            recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
+            recyclerView.adapter = DBAdapter(favorite)
         }
 
         return view
     }
 
     fun createData() {
-        dataSource.getPersonas()
+        dataSource.getFavorite()
     }
+
+
 }// Required empty public constructor

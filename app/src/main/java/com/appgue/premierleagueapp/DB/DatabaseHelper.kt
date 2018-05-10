@@ -24,8 +24,12 @@ class DatabaseHelper(ctx: Context) :
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.createTable("favorite", true,
-                "id" to INTEGER + PRIMARY_KEY,
-                "name" to TEXT)
+                "id" to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                "teamHome" to TEXT,
+                "teamAway" to TEXT,
+                "tanggalFav" to TEXT,
+                "teamAwayBadge" to TEXT,
+                "teamHomeBadge" to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

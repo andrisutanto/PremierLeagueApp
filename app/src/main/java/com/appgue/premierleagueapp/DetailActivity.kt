@@ -150,16 +150,25 @@ class DetailActivity : AppCompatActivity() {
         try {
             database.use {
                 insert("favorite",
-                        "id" to "123456",
-                        "name" to "Arsenal")
+                        "teamHome" to "Arsenal",
+                        "teamAway" to "Arsenal",
+                        "tanggalFav" to "20/05/2018",
+                        "teamHomeBadge" to "",
+                        "teamAwayBadge" to "")
 
                 insert("favorite",
-                        "id" to "123455",
-                        "name" to "Cgghelsea")
+                        "teamHome" to "Chelsea",
+                        "teamAway" to "Chelsea",
+                        "tanggalFav" to "20/05/2018",
+                        "teamHomeBadge" to "",
+                        "teamAwayBadge" to "")
 
                 insert("favorite",
-                        "id" to "123454",
-                        "name" to "Manchester United")
+                        "teamHome" to "Manchester United",
+                        "teamAway" to "Manchester United",
+                        "tanggalFav" to "20/05/2018",
+                        "teamHomeBadge" to "",
+                        "teamAwayBadge" to "")
             }
             Toast.makeText(this, "Added to favorite", Toast.LENGTH_SHORT).show()
         } catch (e: SQLiteConstraintException){
