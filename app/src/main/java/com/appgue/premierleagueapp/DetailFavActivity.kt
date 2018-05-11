@@ -1,7 +1,9 @@
 package com.appgue.premierleagueapp
 
+import android.database.sqlite.SQLiteConstraintException
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.appgue.premierleagueapp.DB.Favorite
 import com.appgue.premierleagueapp.DB.database
 import com.squareup.picasso.Picasso
@@ -57,11 +59,31 @@ class DetailFavActivity : AppCompatActivity() {
         tvAwayShotsFavorite.text = result[0].AwayShots
         tvHomeGoalkeeperFavorite.text = result[0].HomeGoalkeeper
         tvAwayGoalkeeperFavorite.text = result[0].AwayGoalkeeper
+        tvHomeDefenseFavorite.text = result[0].HomeDefense
+        tvAwayDefenseFavorite.text = result[0].AwayDefense
         tvHomeMidfieldFavorite.text = result[0].HomeMidfield
         tvAwayMidfieldFavorite.text = result[0].AwayMidfield
         tvHomeForwardFavorite.text = result[0].HomeForward
         tvAwayForwardFavorite.text = result[0].AwayForward
         tvScoreHomeDetailFavorite.text = result[0].ScoreHome
         tvScoreAwayDetailFavorite.text = result[0].ScoreAway
+
+        //on click listener button favorite
+        btnFavoriteFavorite.setOnClickListener{
+            DeleteFavorite()
+        }
+    }
+
+    private fun DeleteFavorite(){
+        try {
+            database.use {
+                delete("favorite",
+                        "id="+tvIdSqliteFavorite.text.toString()
+                )
+            }
+            Toast.makeText(this, "Data deleted", Toast.LENGTH_SHORT).show()
+        } catch (e: SQLiteConstraintException){
+            Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
+        }
     }
 }

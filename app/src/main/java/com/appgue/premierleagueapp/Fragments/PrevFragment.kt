@@ -53,7 +53,6 @@ class PrevFragment : Fragment() {
                     if (response.isSuccessful) {
                         val data = response.body()?.data
                         val adapter = PrevFragmentAdapter(activity, data)
-                        val recycler_prev = view?.findViewById<View>(R.id.recycler_prev) as RecyclerView
                         recycler_prev.adapter = adapter
                         recycler_prev.layoutManager = GridLayoutManager(activity,1)
                     }
