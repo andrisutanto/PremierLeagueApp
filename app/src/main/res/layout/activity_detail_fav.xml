@@ -23,12 +23,12 @@
 
 
     <TextView
-        android:id="@+id/tvIdEventFavorite"
+        android:id="@+id/tvIdSqliteFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="000000"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/tvTanggalPertandinganDetailFavorite"

@@ -29,7 +29,23 @@ class DatabaseHelper(ctx: Context) :
                 "teamAway" to TEXT,
                 "tanggalFav" to TEXT,
                 "teamAwayBadge" to TEXT,
-                "teamHomeBadge" to TEXT)
+                "teamHomeBadge" to TEXT,
+                "HomeGoals" to TEXT,
+                "AwayGoals" to TEXT,
+                "HomeFormation" to TEXT,
+                "AwayFormation" to TEXT,
+                "HomeShots" to TEXT,
+                "AwayShots" to TEXT,
+                "HomeGoalkeeper" to TEXT,
+                "AwayGoalkeeper" to TEXT,
+                "HomeDefense" to TEXT,
+                "AwayDefense" to TEXT,
+                "HomeMidfield" to TEXT,
+                "AwayMidfield" to TEXT,
+                "HomeForward" to TEXT,
+                "AwayForward" to TEXT,
+                "ScoreHome" to TEXT,
+                "ScoreAway" to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

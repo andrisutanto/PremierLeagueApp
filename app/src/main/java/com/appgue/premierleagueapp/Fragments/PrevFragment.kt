@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.appgue.premierleagueapp.Model.Event
 import com.appgue.premierleagueapp.R
 import com.appgue.premierleagueapp.Utils.InitRetrofit
 import kotlinx.android.synthetic.main.fragment_prev.*
+import org.jetbrains.anko.recyclerview.v7._RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 
@@ -51,6 +53,7 @@ class PrevFragment : Fragment() {
                     if (response.isSuccessful) {
                         val data = response.body()?.data
                         val adapter = PrevFragmentAdapter(activity, data)
+                        val recycler_prev = view?.findViewById<View>(R.id.recycler_prev) as RecyclerView
                         recycler_prev.adapter = adapter
                         recycler_prev.layoutManager = GridLayoutManager(activity,1)
                     }

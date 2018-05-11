@@ -22,16 +22,16 @@ class NextFragmentAdapter (c: FragmentActivity?, data: List<Event.EventsData>?) 
     private var Context: Context? = c
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val nextData: Event.EventsData = nextEvent!!.get(position)
-        holder.tvTanggalPertandinganNext.text = nextData.strDate
-        holder.tvTeamHomeNext.text = nextData.strHomeTeam
-        holder.tvTeamAwayNext.text = nextData.strAwayTeam
+        val nextData: Event.EventsData? = nextEvent?.get(position)
+        holder.tvTanggalPertandinganNext.text = nextData?.strDate
+        holder.tvTeamHomeNext.text = nextData?.strHomeTeam
+        holder.tvTeamAwayNext.text = nextData?.strAwayTeam
         //set on click dan kirim idEvent
         holder.LLNext.setOnClickListener({ v ->
             val intent = Intent(Context?.applicationContext, DetailActivity::class.java)
-            intent.putExtra("idEvent", nextData.idEvent.toString())
-            intent.putExtra("idHomeTeam", nextData.idHomeTeam)
-            intent.putExtra("idAwayTeam", nextData.idAwayTeam)
+            intent.putExtra("idEvent", nextData?.idEvent.toString())
+            intent.putExtra("idHomeTeam", nextData?.idHomeTeam)
+            intent.putExtra("idAwayTeam", nextData?.idAwayTeam)
             Context?.startActivity(intent)
         })
     }

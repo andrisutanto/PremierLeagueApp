@@ -22,18 +22,18 @@ class PrevFragmentAdapter (c: FragmentActivity?, data: List<Event.EventsData>?) 
     private var Context: Context? = c
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val prevData: Event.EventsData = prevEvent!!.get(position)
-        holder.tvTanggalPertandinganPrev.text = prevData.strDate
-        holder.tvScoreHomePrev.text = prevData.intHomeScore.toString()
-        holder.tvScoreAwayPrev.text = prevData.intAwayScore.toString()
-        holder.tvTeamHomePrev.text = prevData.strHomeTeam
-        holder.tvTeamAwayPrev.text = prevData.strAwayTeam
+        val prevData: Event.EventsData? = prevEvent?.get(position)
+        holder.tvTanggalPertandinganPrev.text = prevData?.strDate
+        holder.tvScoreHomePrev.text = prevData?.intHomeScore.toString()
+        holder.tvScoreAwayPrev.text = prevData?.intAwayScore.toString()
+        holder.tvTeamHomePrev.text = prevData?.strHomeTeam
+        holder.tvTeamAwayPrev.text = prevData?.strAwayTeam
         //set on click dan kirim idEvent
         holder.LLPrev.setOnClickListener({ v ->
             val intent = Intent(Context?.applicationContext, DetailActivity::class.java)
-            intent.putExtra("idEvent", prevData.idEvent.toString())
-            intent.putExtra("idHomeTeam", prevData.idHomeTeam)
-            intent.putExtra("idAwayTeam", prevData.idAwayTeam)
+            intent.putExtra("idEvent", prevData?.idEvent.toString())
+            intent.putExtra("idHomeTeam", prevData?.idHomeTeam)
+            intent.putExtra("idAwayTeam", prevData?.idAwayTeam)
             Context?.startActivity(intent)
         })
     }

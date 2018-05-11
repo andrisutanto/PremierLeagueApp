@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import com.appgue.premierleagueapp.DB.database
 //import com.appgue.premierleagueapp.DB.Favorite
@@ -23,6 +24,27 @@ import org.jetbrains.anko.db.insert
 
 
 class DetailActivity : AppCompatActivity() {
+    private lateinit var TeamHomeFavorite : String
+    private lateinit var TeamAwayFavorite : String
+    private lateinit var TeamHomeBadgeFavorite : String
+    private lateinit var TeamAwayBadgeFavorite : String
+    private lateinit var tvTanggalPertandinganFavorite : String
+    private lateinit var HomeGoals : String
+    private lateinit var AwayGoals : String
+    private lateinit var HomeFormation : String
+    private lateinit var AwayFormation : String
+    private lateinit var HomeShots : String
+    private lateinit var AwayShots : String
+    private lateinit var HomeGoalkeeper : String
+    private lateinit var AwayGoalkeeper : String
+    private lateinit var HomeDefense : String
+    private lateinit var AwayDefense : String
+    private lateinit var HomeMidfield : String
+    private lateinit var AwayMidfield : String
+    private lateinit var HomeForward : String
+    private lateinit var AwayForward : String
+    private lateinit var ScoreHome : String
+    private lateinit var ScoreAway : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,36 +79,60 @@ class DetailActivity : AppCompatActivity() {
                 if (response != null) {
                     if (response.isSuccessful) {
                         tvHomeGoalDetails.setText(response.body()?.result?.get(0)?.strHomeGoalDetails)
+                        HomeGoals = response.body()?.result?.get(0)?.strHomeGoalDetails.toString()
                         tvAwayGoalDetails.setText(response.body()?.result?.get(0)?.strAwayGoalDetails)
+                        AwayGoals = response.body()?.result?.get(0)?.strAwayGoalDetails.toString()
 
-                        if(response.body()?.result?.get(0)?.strHomeFormation != "")
+                        if(response.body()?.result?.get(0)?.strHomeFormation != ""){
                             tvFormationHomeDetail.setText(response.body()?.result?.get(0)?.strHomeFormation)
-                        else tvFormationHomeDetail.setText("no formation")
+                            HomeFormation = response.body()?.result?.get(0)?.strHomeFormation.toString()}
+                        else {tvFormationHomeDetail.setText("no formation")
+                            HomeFormation = "no formation"}
 
-                        if(response.body()?.result?.get(0)?.strAwayFormation != "")
+                        if(response.body()?.result?.get(0)?.strAwayFormation != ""){
                             tvFormationAwayDetail.setText(response.body()?.result?.get(0)?.strAwayFormation)
-                        else tvFormationAwayDetail.setText("no formation")
+                            AwayFormation = response.body()?.result?.get(0)?.strAwayFormation.toString()}
+                        else {tvFormationAwayDetail.setText("no formation")
+                            AwayFormation = "no formation"}
 
                         tvHomeShots.setText(response.body()?.result?.get(0)?.intHomeShots.toString())
+                        HomeShots = response.body()?.result?.get(0)?.intHomeShots.toString()
                         tvAwayShots.setText(response.body()?.result?.get(0)?.intAwayShots.toString())
+                        AwayShots = response.body()?.result?.get(0)?.intAwayShots.toString()
 
                         tvHomeGoalkeeper.setText(response.body()?.result?.get(0)?.strHomeLineupGoalkeeper)
+                        HomeGoalkeeper = response.body()?.result?.get(0)?.strHomeLineupGoalkeeper.toString()
                         tvAwayGoalkeeper.setText(response.body()?.result?.get(0)?.strAwayLineupGoalkeeper)
+                        AwayGoalkeeper = response.body()?.result?.get(0)?.strAwayLineupGoalkeeper.toString()
 
                         tvHomeDefense.setText(response.body()?.result?.get(0)?.strHomeLineupDefense)
+                        HomeDefense = response.body()?.result?.get(0)?.strHomeLineupDefense.toString()
                         tvAwayDefense.setText(response.body()?.result?.get(0)?.strAwayLineupDefense)
+                        AwayDefense = response.body()?.result?.get(0)?.strAwayLineupDefense.toString()
 
                         tvHomeMidfield.setText(response.body()?.result?.get(0)?.strHomeLineupMidfield)
+                        HomeMidfield = response.body()?.result?.get(0)?.strHomeLineupMidfield.toString()
                         tvAwayMidfield.setText(response.body()?.result?.get(0)?.strAwayLineupMidfield)
+                        AwayMidfield = response.body()?.result?.get(0)?.strAwayLineupMidfield.toString()
 
                         tvHomeForward.setText(response.body()?.result?.get(0)?.strHomeLineupForward)
+                        HomeForward = response.body()?.result?.get(0)?.strHomeLineupForward.toString()
                         tvAwayForward.setText(response.body()?.result?.get(0)?.strAwayLineupForward)
+                        AwayForward = response.body()?.result?.get(0)?.strAwayLineupForward.toString()
 
                         tvTanggalPertandinganDetail.setText(response.body()?.result?.get(0)?.strDate)
+                        tvTanggalPertandinganFavorite = response.body()?.result?.get(0)?.strDate.toString()
+
                         tvTeamHomeDetail.setText(response.body()?.result?.get(0)?.strHomeTeam)
+                        TeamHomeFavorite = response.body()?.result?.get(0)?.strHomeTeam.toString()
+
                         tvTeamAwayDetail.setText(response.body()?.result?.get(0)?.strAwayTeam)
+                        TeamAwayFavorite = response.body()?.result?.get(0)?.strAwayTeam.toString()
+
                         tvScoreHomeDetail.setText(response.body()?.result?.get(0)?.intHomeScore.toString())
+                        ScoreHome = response.body()?.result?.get(0)?.intHomeScore.toString()
                         tvScoreAwayDetail.setText(response.body()?.result?.get(0)?.intAwayScore.toString())
+                        ScoreAway = response.body()?.result?.get(0)?.intAwayScore.toString()
                     }
                 }
             }
@@ -107,6 +153,7 @@ class DetailActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Team>?, response: retrofit2.Response<Team>?) {
                 if (response != null) {
                     val URIimgHome = response.body()?.teamresult?.get(0)?.strTeamBadge
+                    TeamHomeBadgeFavorite = response.body()?.teamresult?.get(0)?.strTeamBadge.toString()
                     if (response.isSuccessful) {
                         Picasso.with(this@DetailActivity)
                                 .load(URIimgHome)
@@ -131,6 +178,7 @@ class DetailActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Team>?, response: retrofit2.Response<Team>?) {
                 if (response != null) {
                     val URIimgAway = response.body()?.teamresult?.get(0)?.strTeamBadge
+                    TeamAwayBadgeFavorite = response.body()?.teamresult?.get(0)?.strTeamBadge.toString()
                     if (response.isSuccessful) {
                         Picasso.with(this@DetailActivity)
                                 .load(URIimgAway)
@@ -150,25 +198,28 @@ class DetailActivity : AppCompatActivity() {
         try {
             database.use {
                 insert("favorite",
-                        "teamHome" to "Arsenal",
-                        "teamAway" to "Arsenal",
-                        "tanggalFav" to "20/05/2018",
-                        "teamHomeBadge" to "",
-                        "teamAwayBadge" to "")
-
-                insert("favorite",
-                        "teamHome" to "Chelsea",
-                        "teamAway" to "Chelsea",
-                        "tanggalFav" to "20/05/2018",
-                        "teamHomeBadge" to "",
-                        "teamAwayBadge" to "")
-
-                insert("favorite",
-                        "teamHome" to "Manchester United",
-                        "teamAway" to "Manchester United",
-                        "tanggalFav" to "20/05/2018",
-                        "teamHomeBadge" to "",
-                        "teamAwayBadge" to "")
+                        "teamHome" to TeamHomeFavorite,
+                        "teamAway" to TeamAwayFavorite,
+                        "tanggalFav" to tvTanggalPertandinganFavorite,
+                        "teamHomeBadge" to TeamHomeBadgeFavorite,
+                        "teamAwayBadge" to TeamAwayBadgeFavorite,
+                        "HomeGoals" to HomeGoals,
+                        "AwayGoals" to AwayGoals,
+                        "HomeFormation" to HomeFormation,
+                        "AwayFormation" to AwayFormation,
+                        "HomeShots" to HomeShots,
+                        "AwayShots" to AwayShots,
+                        "HomeGoalkeeper" to HomeGoalkeeper,
+                        "AwayGoalkeeper" to AwayGoalkeeper,
+                        "HomeDefense" to HomeDefense,
+                        "AwayDefense" to AwayDefense,
+                        "HomeMidfield" to HomeMidfield,
+                        "AwayMidfield" to AwayMidfield,
+                        "HomeForward" to HomeForward,
+                        "AwayForward" to AwayForward,
+                        "ScoreHome" to ScoreHome,
+                        "ScoreAway" to ScoreAway
+                )
             }
             Toast.makeText(this, "Added to favorite", Toast.LENGTH_SHORT).show()
         } catch (e: SQLiteConstraintException){
