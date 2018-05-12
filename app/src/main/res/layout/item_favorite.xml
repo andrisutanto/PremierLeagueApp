@@ -71,6 +71,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/tvScoreHomeFavorit"
             android:text="@string/teamhome"
+            android:textAlignment="textEnd"
             android:textSize="18sp" />
 
         <TextView
@@ -80,6 +81,7 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/tvScoreAwayFavorit"
             android:text="@string/teamaway"
+            android:textAlignment="viewStart"
             android:textSize="18sp" />
     </RelativeLayout>
 </LinearLayout>

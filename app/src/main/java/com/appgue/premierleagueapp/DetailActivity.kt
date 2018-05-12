@@ -78,47 +78,77 @@ class DetailActivity : AppCompatActivity() {
             override fun onResponse(call: Call<EventDetails>?, response: retrofit2.Response<EventDetails>?) {
                 if (response != null) {
                     if (response.isSuccessful) {
+                        if(response.body()?.result?.get(0)?.strHomeGoalDetails != null){
                         tvHomeGoalDetails.setText(response.body()?.result?.get(0)?.strHomeGoalDetails)
-                        HomeGoals = response.body()?.result?.get(0)?.strHomeGoalDetails.toString()
-                        tvAwayGoalDetails.setText(response.body()?.result?.get(0)?.strAwayGoalDetails)
-                        AwayGoals = response.body()?.result?.get(0)?.strAwayGoalDetails.toString()
+                        HomeGoals = response.body()?.result?.get(0)?.strHomeGoalDetails.toString()}
+                        else HomeGoals = " "
 
-                        if(response.body()?.result?.get(0)?.strHomeFormation != ""){
+                        if(response.body()?.result?.get(0)?.strAwayGoalDetails != null){
+                        tvAwayGoalDetails.setText(response.body()?.result?.get(0)?.strAwayGoalDetails)
+                        AwayGoals = response.body()?.result?.get(0)?.strAwayGoalDetails.toString()}
+                        else AwayGoals = " "
+
+                        if(response.body()?.result?.get(0)?.strHomeFormation != null){
                             tvFormationHomeDetail.setText(response.body()?.result?.get(0)?.strHomeFormation)
                             HomeFormation = response.body()?.result?.get(0)?.strHomeFormation.toString()}
                         else {tvFormationHomeDetail.setText("no formation")
                             HomeFormation = "no formation"}
 
-                        if(response.body()?.result?.get(0)?.strAwayFormation != ""){
+                        if(response.body()?.result?.get(0)?.strAwayFormation != null){
                             tvFormationAwayDetail.setText(response.body()?.result?.get(0)?.strAwayFormation)
                             AwayFormation = response.body()?.result?.get(0)?.strAwayFormation.toString()}
                         else {tvFormationAwayDetail.setText("no formation")
                             AwayFormation = "no formation"}
 
+                        if(response.body()?.result?.get(0)?.intHomeShots != null){
                         tvHomeShots.setText(response.body()?.result?.get(0)?.intHomeShots.toString())
-                        HomeShots = response.body()?.result?.get(0)?.intHomeShots.toString()
+                        HomeShots = response.body()?.result?.get(0)?.intHomeShots.toString()}
+                        else HomeShots = " "
+
+                        if(response.body()?.result?.get(0)?.intAwayShots != null){
                         tvAwayShots.setText(response.body()?.result?.get(0)?.intAwayShots.toString())
-                        AwayShots = response.body()?.result?.get(0)?.intAwayShots.toString()
+                        AwayShots = response.body()?.result?.get(0)?.intAwayShots.toString()}
+                        else AwayShots = " "
 
+                        if(response.body()?.result?.get(0)?.strHomeLineupGoalkeeper !=null){
                         tvHomeGoalkeeper.setText(response.body()?.result?.get(0)?.strHomeLineupGoalkeeper)
-                        HomeGoalkeeper = response.body()?.result?.get(0)?.strHomeLineupGoalkeeper.toString()
+                        HomeGoalkeeper = response.body()?.result?.get(0)?.strHomeLineupGoalkeeper.toString()}
+                        else HomeGoalkeeper = " "
+
+                        if(response.body()?.result?.get(0)?.strAwayLineupGoalkeeper != null){
                         tvAwayGoalkeeper.setText(response.body()?.result?.get(0)?.strAwayLineupGoalkeeper)
-                        AwayGoalkeeper = response.body()?.result?.get(0)?.strAwayLineupGoalkeeper.toString()
+                        AwayGoalkeeper = response.body()?.result?.get(0)?.strAwayLineupGoalkeeper.toString()}
+                        else AwayGoalkeeper = " "
 
+                        if(response.body()?.result?.get(0)?.strHomeLineupDefense != null){
                         tvHomeDefense.setText(response.body()?.result?.get(0)?.strHomeLineupDefense)
-                        HomeDefense = response.body()?.result?.get(0)?.strHomeLineupDefense.toString()
+                        HomeDefense = response.body()?.result?.get(0)?.strHomeLineupDefense.toString()}
+                        else HomeDefense = " "
+
+                        if(response.body()?.result?.get(0)?.strAwayLineupDefense != null){
                         tvAwayDefense.setText(response.body()?.result?.get(0)?.strAwayLineupDefense)
-                        AwayDefense = response.body()?.result?.get(0)?.strAwayLineupDefense.toString()
+                        AwayDefense = response.body()?.result?.get(0)?.strAwayLineupDefense.toString()}
+                        else AwayDefense = " "
 
+                        if(response.body()?.result?.get(0)?.strHomeLineupMidfield != null){
                         tvHomeMidfield.setText(response.body()?.result?.get(0)?.strHomeLineupMidfield)
-                        HomeMidfield = response.body()?.result?.get(0)?.strHomeLineupMidfield.toString()
-                        tvAwayMidfield.setText(response.body()?.result?.get(0)?.strAwayLineupMidfield)
-                        AwayMidfield = response.body()?.result?.get(0)?.strAwayLineupMidfield.toString()
+                        HomeMidfield = response.body()?.result?.get(0)?.strHomeLineupMidfield.toString()}
+                        else HomeMidfield = " "
 
+                        if(response.body()?.result?.get(0)?.strAwayLineupMidfield != null){
+                        tvAwayMidfield.setText(response.body()?.result?.get(0)?.strAwayLineupMidfield)
+                        AwayMidfield = response.body()?.result?.get(0)?.strAwayLineupMidfield.toString()}
+                        else AwayMidfield = " "
+
+                        if(response.body()?.result?.get(0)?.strHomeLineupForward != null){
                         tvHomeForward.setText(response.body()?.result?.get(0)?.strHomeLineupForward)
-                        HomeForward = response.body()?.result?.get(0)?.strHomeLineupForward.toString()
+                        HomeForward = response.body()?.result?.get(0)?.strHomeLineupForward.toString()}
+                        else HomeForward = " "
+
+                        if(response.body()?.result?.get(0)?.strAwayLineupForward != null){
                         tvAwayForward.setText(response.body()?.result?.get(0)?.strAwayLineupForward)
-                        AwayForward = response.body()?.result?.get(0)?.strAwayLineupForward.toString()
+                        AwayForward = response.body()?.result?.get(0)?.strAwayLineupForward.toString()}
+                        else AwayForward = " "
 
                         tvTanggalPertandinganDetail.setText(response.body()?.result?.get(0)?.strDate)
                         tvTanggalPertandinganFavorite = response.body()?.result?.get(0)?.strDate.toString()
@@ -129,10 +159,15 @@ class DetailActivity : AppCompatActivity() {
                         tvTeamAwayDetail.setText(response.body()?.result?.get(0)?.strAwayTeam)
                         TeamAwayFavorite = response.body()?.result?.get(0)?.strAwayTeam.toString()
 
+                        if(response.body()?.result?.get(0)?.intHomeScore != null){
                         tvScoreHomeDetail.setText(response.body()?.result?.get(0)?.intHomeScore.toString())
-                        ScoreHome = response.body()?.result?.get(0)?.intHomeScore.toString()
+                        ScoreHome = response.body()?.result?.get(0)?.intHomeScore.toString()}
+                        else ScoreHome = " "
+
+                        if(response.body()?.result?.get(0)?.intAwayScore != null){
                         tvScoreAwayDetail.setText(response.body()?.result?.get(0)?.intAwayScore.toString())
-                        ScoreAway = response.body()?.result?.get(0)?.intAwayScore.toString()
+                        ScoreAway = response.body()?.result?.get(0)?.intAwayScore.toString()}
+                        else ScoreAway = " "
                     }
                 }
             }

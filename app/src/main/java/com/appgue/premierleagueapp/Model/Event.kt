@@ -21,10 +21,10 @@ class Event {
         var strAwayTeam : String? = null
 
         @SerializedName("intHomeScore")
-        var intHomeScore : Int = 0
+        var intHomeScore : String? = null
 
         @SerializedName("intAwayScore")
-        var intAwayScore : Int = 0
+        var intAwayScore : String? = null
 
         @SerializedName("idHomeTeam")
         var idHomeTeam : String? = null

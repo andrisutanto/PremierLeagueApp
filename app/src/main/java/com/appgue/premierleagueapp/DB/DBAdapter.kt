@@ -51,7 +51,9 @@ class DBAdapter (c: FragmentActivity?, val favorite: List<Favorite>) : RecyclerV
         fun bindItems(favorite: Favorite) {
             itemView.tvTeamHomeFavorit.text = favorite.teamHome
             itemView.tvTeamAwayFavorit.text = favorite.teamAway
-            itemView.tvTanggalPertandinganFavorit.text = favorite.id.toString()
+            itemView.tvTanggalPertandinganFavorit.text = favorite.tanggalFav
+            itemView.tvScoreHomeFavorit.text = favorite.ScoreHome
+            itemView.tvScoreAwayFavorit.text = favorite.ScoreAway
         }
     }
 }

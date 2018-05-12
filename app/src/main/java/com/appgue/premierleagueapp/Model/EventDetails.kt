@@ -24,10 +24,10 @@ class EventDetails {
             var strAwayGoalDetails : String? = null
 
             @SerializedName("intHomeShots")
-            var intHomeShots : Int = 0
+            var intHomeShots : String? = null
 
             @SerializedName("intAwayShots")
-            var intAwayShots : Int = 0
+            var intAwayShots : String? = null
 
             @SerializedName("strHomeLineupGoalkeeper")
             var strHomeLineupGoalkeeper : String? = null
@@ -63,9 +63,9 @@ class EventDetails {
             var strAwayTeam : String? = null
 
             @SerializedName("intHomeScore")
-            var intHomeScore : Int = 0
+            var intHomeScore : String? = null
 
             @SerializedName("intAwayScore")
-            var intAwayScore : Int = 0
+            var intAwayScore : String? = null
         }
 }

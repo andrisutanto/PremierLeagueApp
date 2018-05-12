@@ -57,8 +57,10 @@ class DetailFavActivity : AppCompatActivity() {
         tvFormationAwayDetailFavorite.text = result[0].AwayFormation
         tvHomeShotsFavorite.text = result[0].HomeShots
         tvAwayShotsFavorite.text = result[0].AwayShots
+
         tvHomeGoalkeeperFavorite.text = result[0].HomeGoalkeeper
         tvAwayGoalkeeperFavorite.text = result[0].AwayGoalkeeper
+
         tvHomeDefenseFavorite.text = result[0].HomeDefense
         tvAwayDefenseFavorite.text = result[0].AwayDefense
         tvHomeMidfieldFavorite.text = result[0].HomeMidfield

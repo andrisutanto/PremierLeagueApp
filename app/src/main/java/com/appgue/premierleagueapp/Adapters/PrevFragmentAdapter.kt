@@ -24,8 +24,8 @@ class PrevFragmentAdapter (c: FragmentActivity?, data: List<Event.EventsData>?) 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val prevData: Event.EventsData? = prevEvent?.get(position)
         holder.tvTanggalPertandinganPrev.text = prevData?.strDate
-        holder.tvScoreHomePrev.text = prevData?.intHomeScore.toString()
-        holder.tvScoreAwayPrev.text = prevData?.intAwayScore.toString()
+        holder.tvScoreHomePrev.text = prevData?.intHomeScore
+        holder.tvScoreAwayPrev.text = prevData?.intAwayScore
         holder.tvTeamHomePrev.text = prevData?.strHomeTeam
         holder.tvTeamAwayPrev.text = prevData?.strAwayTeam
         //set on click dan kirim idEvent
