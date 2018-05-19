@@ -1,5 +1,6 @@
 package com.appgue.premierleagueapp.Utils
 
+import com.appgue.premierleagueapp.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -8,9 +9,9 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 class InitRetrofit {
 
-    fun getInitRetrofit(): Retrofit {
+    private fun getInitRetrofit(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl(EndPoints.BASE_URL)
+                .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
     }

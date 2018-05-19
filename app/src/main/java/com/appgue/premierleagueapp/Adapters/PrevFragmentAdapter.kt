@@ -28,10 +28,10 @@ class PrevFragmentAdapter (c: FragmentActivity?, data: List<Event.EventsData>?) 
         holder.tvScoreAwayPrev.text = prevData?.intAwayScore
         holder.tvTeamHomePrev.text = prevData?.strHomeTeam
         holder.tvTeamAwayPrev.text = prevData?.strAwayTeam
-        //set on click dan kirim idEvent
         holder.LLPrev.setOnClickListener({ v ->
             val intent = Intent(Context?.applicationContext, DetailActivity::class.java)
             intent.putExtra("idEvent", prevData?.idEvent.toString())
+            intent.putExtra("tipe", "api")
             intent.putExtra("idHomeTeam", prevData?.idHomeTeam)
             intent.putExtra("idAwayTeam", prevData?.idAwayTeam)
             Context?.startActivity(intent)
@@ -39,11 +39,16 @@ class PrevFragmentAdapter (c: FragmentActivity?, data: List<Event.EventsData>?) 
     }
 
     override fun getItemCount(): Int {
-        return prevEvent!!.size
+        //return prevEvent!!.size //cara lama
+        prevEvent?.let {
+            return it.size
+        } ?: run {
+            return 0
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{
-        var inflater = LayoutInflater.from(Context).inflate(R.layout.item_prev_layout, parent, false)
+        val inflater = LayoutInflater.from(Context).inflate(R.layout.item_prev_layout, parent, false)
         return ViewHolder(inflater)
     }
 

@@ -15,14 +15,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//      untuk memberi title pada masing2 tabLayout
+        //untuk memberi title pada masing2 tabLayout
         tabHome.addTab(tabHome.newTab().setText("Prev"))
         tabHome.addTab(tabHome.newTab().setText("Next"))
         tabHome.addTab(tabHome.newTab().setText("Favorite"))
-//      menginisialisasi adapter
+
+        //menginisialisasi adapter
         var adapter = TabAdapter(supportFragmentManager)
         viewPagerTabs.adapter = adapter
-//      mengatur viePager ketika berpindah tempat
+
+        //mengatur viePager ketika berpindah tempat
         viewPagerTabs.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabHome))
 
         tabHome.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

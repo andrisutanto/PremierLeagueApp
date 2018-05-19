@@ -13,45 +13,30 @@ class DatabaseHelper(ctx: Context) :
 
     companion object {
         private var instance: DatabaseHelper? = null
-
         fun Instance(context: Context): DatabaseHelper{
             if (instance==null){
                 instance = DatabaseHelper(context.applicationContext)
             }
-            return instance!!
+            return instance as DatabaseHelper
         }
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.createTable("favorite", true,
                 "id" to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                "idEvent" to TEXT,
                 "teamHome" to TEXT,
                 "teamAway" to TEXT,
                 "tanggalFav" to TEXT,
-                "teamAwayBadge" to TEXT,
-                "teamHomeBadge" to TEXT,
-                "HomeGoals" to TEXT + NOT_NULL,
-                "AwayGoals" to TEXT + NOT_NULL,
-                "HomeFormation" to TEXT + NOT_NULL,
-                "AwayFormation" to TEXT + NOT_NULL,
-                "HomeShots" to TEXT + NOT_NULL,
-                "AwayShots" to TEXT + NOT_NULL,
-                "HomeGoalkeeper" to TEXT + NOT_NULL,
-                "AwayGoalkeeper" to TEXT + NOT_NULL,
-                "HomeDefense" to TEXT + NOT_NULL,
-                "AwayDefense" to TEXT + NOT_NULL,
-                "HomeMidfield" to TEXT + NOT_NULL,
-                "AwayMidfield" to TEXT + NOT_NULL,
-                "HomeForward" to TEXT + NOT_NULL,
-                "AwayForward" to TEXT + NOT_NULL,
-                "ScoreHome" to TEXT + NOT_NULL,
-                "ScoreAway" to TEXT + NOT_NULL)
+                "ScoreHome" to TEXT,
+                "ScoreAway" to TEXT,
+                "idHomeTeam" to TEXT,
+                "idAwayTeam" to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
     }
 }
 
-// Access property for Context
 val Context.database: DatabaseHelper
 get() = DatabaseHelper.Instance(applicationContext)

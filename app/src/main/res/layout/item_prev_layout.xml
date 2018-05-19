@@ -71,6 +71,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/tvScoreHomePrev"
             android:text="@string/teamhome"
+            android:gravity="right"
             android:textSize="18sp" />
 
         <TextView

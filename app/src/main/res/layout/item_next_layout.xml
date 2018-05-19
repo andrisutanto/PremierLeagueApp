@@ -47,6 +47,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/tvVersusNext"
             android:text="@string/teamhome"
+            android:gravity="right"
             android:textSize="18sp" />
 
         <TextView

@@ -26,9 +26,7 @@ class PrevFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_prev, container, false)
-
         val swipe = view.findViewById<View>(R.id.refresh_prev) as SwipeRefreshLayout
         swipe.setOnRefreshListener {
             swipe.isRefreshing = false
@@ -53,7 +51,7 @@ class PrevFragment : Fragment() {
                     if (response.isSuccessful) {
                         val data = response.body()?.data
                         val adapter = PrevFragmentAdapter(activity, data)
-                        recycler_prev.adapter = adapter
+                        recycler_prev?.adapter = adapter
                         recycler_prev.layoutManager = GridLayoutManager(activity,1)
                     }
                 }
@@ -61,5 +59,4 @@ class PrevFragment : Fragment() {
 
         })
     }
-
-}// Required empty public constructor
+}

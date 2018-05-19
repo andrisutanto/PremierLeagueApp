@@ -9,11 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.appgue.premierleagueapp.R
 import com.appgue.premierleagueapp.DetailActivity
-import com.appgue.premierleagueapp.DetailFavActivity
-import com.appgue.premierleagueapp.Model.Event
 import kotlinx.android.synthetic.main.item_favorite.view.*
 
 
@@ -30,14 +27,15 @@ class DBAdapter (c: FragmentActivity?, val favorite: List<Favorite>) : RecyclerV
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val favData : Favorite = favorite!!.get(position)
-        //menampilkan ke holder
+        val favData : Favorite = favorite.get(position)
         holder.bindItems(favorite[position])
-
-        //set onclick listener dan kirim id database
         holder.LLFavorite.setOnClickListener({ v ->
-            val intent = Intent(Context?.applicationContext, DetailFavActivity::class.java)
+            val intent = Intent(Context?.applicationContext, DetailActivity::class.java)
             intent.putExtra("id", favData.id.toString())
+            intent.putExtra("idEvent", favData.idEvent)
+            intent.putExtra("tipe", "sql")
+            intent.putExtra("idHomeTeam", favData.idHomeTeam)
+            intent.putExtra("idAwayTeam", favData.idAwayTeam)
             Context?.startActivity(intent)
         })
     }

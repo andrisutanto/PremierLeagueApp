@@ -20,40 +20,33 @@ import com.appgue.premierleagueapp.Model.Team
 import com.appgue.premierleagueapp.R
 import org.jetbrains.anko.db.*
 import kotlinx.android.synthetic.main.fragment_favorite.*
+import org.jetbrains.anko.support.v4.onRefresh
 
 
 /**
  * A simple [Fragment] subclass.
  */
 class FavoriteFragment : Fragment() {
-
     lateinit var favorite: List<Favorite>
     lateinit var dataSource: DataSource
     lateinit var recyclerView: RecyclerView
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_favorite, container, false)
-        //
+        val swipe = view.findViewById<View>(R.id.refresh_favorite) as SwipeRefreshLayout
+
         recyclerView = view.findViewById(R.id.recycler_favorite) as RecyclerView
         dataSource = DataSource(requireContext())
         createData()
-
         favorite = dataSource.getFavorite()
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
         recyclerView.adapter = DBAdapter(activity, favorite)
 
-
-        //
-
-        val swipe = view.findViewById<View>(R.id.refresh_favorite) as SwipeRefreshLayout
         swipe.setOnRefreshListener {
             swipe.isRefreshing = false
             createData()
-
             favorite = dataSource.getFavorite()
             recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
             recyclerView.adapter = DBAdapter(activity, favorite)
@@ -62,9 +55,17 @@ class FavoriteFragment : Fragment() {
         return view
     }
 
-    fun createData() {
+    override fun onResume() {
+        super.onResume()
+        createData()
+        favorite = dataSource.getFavorite()
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
+        recyclerView.adapter = DBAdapter(activity, favorite)
+
+    }
+
+    private fun createData() {
         dataSource.getFavorite()
     }
 
-
-}// Required empty public constructor
+}
